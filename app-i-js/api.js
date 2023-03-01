@@ -13,12 +13,22 @@ const url =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${Ap
 
 const displayData = data=>{
 
-const displayTemperature = document.getElementById('temper');
+// const displayTemperature = document.getElementById('temper');
 // console.log(data.main.temp)
-displayTemperature.innerText=data.main.temp
+// displayTemperature.innerText=data.main.temp
+
+setInnerTextByID("temper", data.main.temp);
+setInnerTextByID('condition', data.weather[0].main);
+console.log(data.weather[0].main);
 
 }
 
+const setInnerTextByID=(id, text)=>{
+
+const temperature= document.getElementById(id);
+temperature.innerText=text;
+
+}
 
 document.getElementById('btn-search').addEventListener('click', function(){
 
